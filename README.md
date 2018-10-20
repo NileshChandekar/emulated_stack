@@ -138,4 +138,13 @@ end
 wr
 ~~~
 
+# ACCESS VLAN INTERFACE - configuration
 
+~~~
+conf  t
+interface range Ethernet 0/1 - 3
+switchport mode access 
+switchport access vlan 100
+end
+wr
+~~~
