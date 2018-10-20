@@ -1,5 +1,5 @@
 # emulated_stack
 
 
-![Image vlan](https://github.com/NileshChandekar/Channel-Bonding-interfaces-LACP---Switch-Centos7/blob/master/images/ether17.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e1.png)
 
