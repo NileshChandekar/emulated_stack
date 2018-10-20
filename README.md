@@ -5,4 +5,4 @@
 # Interface Configuration 
 
 
-![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e3.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e2.png)
