@@ -50,15 +50,13 @@ vlan 40
 name StorageMgmtNetworkVlanID
 vlan 50  
 name TenantNetworkVlanID
-vlan 100 
-name provisioning
 end
 wr
 ~~~
 
 
 ~~~
-SW#sh vlan
+IOU1#sh vlan
 ~~~
 
 ~~~
@@ -73,7 +71,6 @@ VLAN Name                             Status    Ports
 30   InternalApiNetworkVlanID         active    
 40   StorageMgmtNetworkVlanID         active    
 50   TenantNetworkVlanID              active    
-100  provisioning                     active    
 1002 fddi-default                     act/unsup 
 1003 token-ring-default               act/unsup 
 1004 fddinet-default                  act/unsup 
@@ -84,30 +81,28 @@ VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
 1    enet  100001     1500  -      -      -        -    -        0      0   
 10   enet  100010     1500  -      -      -        -    -        0      0   
 20   enet  100020     1500  -      -      -        -    -        0      0   
-          
-VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
----- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
 30   enet  100030     1500  -      -      -        -    -        0      0   
 40   enet  100040     1500  -      -      -        -    -        0      0   
 50   enet  100050     1500  -      -      -        -    -        0      0   
-100  enet  100100     1500  -      -      -        -    -        0      0   
 1002 fddi  101002     1500  -      -      -        -    -        0      0   
 1003 tr    101003     1500  -      -      -        -    -        0      0   
 1004 fdnet 101004     1500  -      -      -        ieee -        0      0   
 1005 trnet 101005     1500  -      -      -        ibm  -        0      0   
-
+          
 Remote SPAN VLANs
 ------------------------------------------------------------------------------
-
+          
 
 Primary Secondary Type              Ports
 ------- --------- ----------------- ------------------------------------------
 
-SW#
+IOU1#
 ~~~
 
+
+
 ~~~
-SW#sh vlan brief 
+IOU1#sh vlan br
 ~~~
 
 ~~~
@@ -122,31 +117,11 @@ VLAN Name                             Status    Ports
 30   InternalApiNetworkVlanID         active    
 40   StorageMgmtNetworkVlanID         active    
 50   TenantNetworkVlanID              active    
-100  provisioning                     active    
 1002 fddi-default                     act/unsup 
 1003 token-ring-default               act/unsup 
 1004 fddinet-default                  act/unsup 
 1005 trnet-default                    act/unsup 
-SW#
+IOU1#
 ~~~
 
-# ACCESS VLAN IP - configuration 
 
-~~~
-configure terminal 
-interface vlan 100
-ip address 192.168.24.250 255.255.255.0
-end
-wr
-~~~
-
-# ACCESS VLAN INTERFACE - configuration
-
-~~~
-conf  t
-interface range Ethernet 0/1 - 3
-switchport mode access 
-switchport access vlan 100
-end
-wr
-~~~
