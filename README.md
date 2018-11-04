@@ -125,3 +125,14 @@ IOU1#
 ~~~
 
 
+### VTP CONFIGURATION ### 
+
+~~~
+conf t
+vtp mode server 
+vtp domain OPENSTACKLAB
+end
+wr
+~~~
+
+
