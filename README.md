@@ -217,7 +217,7 @@ wr
 
 # Server Side Configuration 
 
-### Setting hostname // Undercloud // controller // compute 
+### Setting hostname // Undercloud 
 ~~~
 # hostnamectl set-hostname undercloud.example.com
 # hostnamectl set-hostname --transient undercloud.example.com
@@ -226,6 +226,43 @@ wr
 ~~~
 [root@undercloud ~]# hostname -f 
 undercloud.example.com
+[root@undercloud ~]# 
+~~~
+
+
+### Setting hostname // Controller 
+
+~~~
+# hostnamectl set-hostname ctrl.example.com
+# hostnamectl set-hostname --transient ctrl.example.com
+~~~
+
+~~~
+[root@ctrl ~]# hostname -f 
+ctrl.example.com
+[root@ctrl ~]# 
+~~~
+
+
+### Setting hostname // Compute 
+
+~~~
+# hostnamectl set-hostname cmpt.example.com
+# hostnamectl set-hostname --transient cmpt.example.com
+~~~
+
+~~~
+[root@cmpt ~]# hostname -f 
+cmpt.example.com
+[root@cmpt ~]# 
+~~~
+
+### Add hostentry for Undercloud node `` etc/hosts ``  // Undercloud Node
+
+~~~
+[root@undercloud ~]# cat  /etc/hosts
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 undercloud.example.com undercloud
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 [root@undercloud ~]# 
 ~~~
 
@@ -256,4 +293,72 @@ undercloud.example.com
        valid_lft forever preferred_lft forever
 [root@undercloud ~]# 
 ~~~
+
+
+### IP details , // Controller Node  
+
+~~~
+[root@ctrl ~]# ip a
+~~~
+
+~~~
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:eb:8a:b0 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.24.2/24 brd 192.168.24.255 scope global noprefixroute eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:feeb:8ab0/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:73:77:2f brd ff:ff:ff:ff:ff:ff
+    inet 10.10.10.20/24 brd 10.10.10.255 scope global noprefixroute eth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe73:772f/64 scope link 
+       valid_lft forever preferred_lft forever
+4: eth2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:cc:00:0a brd ff:ff:ff:ff:ff:ff
+5: eth3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:15:53:c3 brd ff:ff:ff:ff:ff:ff
+[root@ctrl ~]# 
+~~~
+
+
+### IP details , // Compute Node 
+
+~~~
+[root@cmpt ~]# ip a
+~~~
+
+~~~
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:12:24:35 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.24.3/24 brd 192.168.24.255 scope global noprefixroute eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe12:2435/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:93:14:17 brd ff:ff:ff:ff:ff:ff
+    inet 10.10.10.30/24 brd 10.10.10.255 scope global noprefixroute eth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe93:1417/64 scope link 
+       valid_lft forever preferred_lft forever
+4: eth2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:25:90:86 brd ff:ff:ff:ff:ff:ff
+5: eth3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:2a:fa:e8 brd ff:ff:ff:ff:ff:ff
+[root@cmpt ~]# 
+~~~
+
+
 
