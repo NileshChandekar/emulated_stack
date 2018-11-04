@@ -361,4 +361,67 @@ cmpt.example.com
 ~~~
 
 
+### Create stack user 
+
+~~~
+useradd stack
+echo a | passwd stack  --stdin
+echo "stack ALL=(root) NOPASSWD:ALL" | sudo tee -a /etc/sudoers.d/stack
+chmod 0440 /etc/sudoers.d/stack
+~~~
+
+### Creating Directories for Templates and Images
+
+~~~
+[stack@undercloud ~]$ mkdir ~/images
+[stack@undercloud ~]$ mkdir ~/templates
+~~~
+
+### Registering your System
+
+
+### Installing the Director Packages
+
+~~~
+[stack@undercloud ~]$ sudo yum install -y python-tripleoclient
+~~~
+
+### Configuring the Director
+
+~~~
+$ cp /usr/share/instack-undercloud/undercloud.conf.sample ~/undercloud.conf
+~~~
+
+
+~~~
+[DEFAULT]
+local_interface = eth0
+local_ip = 192.168.24.1/24
+network_gateway = 192.168.24.250
+undercloud_public_vip = 192.168.24.2
+undercloud_admin_vip = 192.168.24.3
+network_cidr = 192.168.24.0/24
+masquerade_network = 192.168.24.0/24
+dhcp_start = 192.168.24.5
+dhcp_end = 192.168.24.24
+inspection_iprange = 192.168.24.100,192.168.24.120
+~~~
+
+
+~~~
+$ openstack undercloud install
+~~~
+
+
+### Check the enabled services using the following command: 
+
+~~~
+$ sudo systemctl list-units openstack-*
+~~~
+
+### To initialize the stack user to use the command line tools, run the following command: 
+
+~~~
+$ source ~/stackrc
+~~~
 
