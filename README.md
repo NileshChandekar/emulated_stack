@@ -159,3 +159,60 @@ end
 wr
 ~~~
 
+### Check Trunk Details 
+
+~~~
+ESW1# sh interfaces trunk 
+~~~
+
+~~~
+Port        Mode             Encapsulation  Status        Native vlan
+Et3/0       on               802.1q         trunking      1
+Et3/1       on               802.1q         trunking      1
+Et3/2       on               802.1q         trunking      1
+Et3/3       on               802.1q         trunking      1
+
+Port        Vlans allowed on trunk
+Et3/0       1-4,10-50,1002-1005
+Et3/1       1-4,10-50,1002-1005
+Et3/2       1-4,10-50,1002-1005
+Et3/3       1-4,10-50,1002-1005
+
+Port        Vlans allowed and active in management domain
+Et3/0       1,10,20,30,40,50
+Et3/1       1,10,20,30,40,50
+Et3/2       1,10,20,30,40,50
+Et3/3       1,10,20,30,40,50
+
+Port        Vlans in spanning tree forwarding state and not pruned
+Et3/0       1,10,20,30,40,50
+Et3/1       1,10,20,30,40,50
+Et3/2       1,10,20,30,40,50
+Et3/3       1,10,20,30,40,50
+IOU1#
+~~~
+
+
+# Switch EtherChannel Configuration 
+
+### Channel Group 1 for port 3/0 - 1
+
+~~~
+conf t
+interface range Ethernet 3/0 - 1
+channel-group 1 mode active
+end
+wr
+~~~
+
+### Channel Group 1 for port 3/2 - 3
+
+~~~
+conf t
+interface range Ethernet 3/2 - 3
+channel-group 2 mode active
+end
+wr
+~~~
+
+
