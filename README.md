@@ -215,4 +215,45 @@ end
 wr
 ~~~
 
+# Server Side Configuration 
+
+### Setting hostname // Undercloud // controller // compute 
+~~~
+# hostnamectl set-hostname undercloud.example.com
+# hostnamectl set-hostname --transient undercloud.example.com
+~~~
+
+~~~
+[root@undercloud ~]# hostname -f 
+undercloud.example.com
+[root@undercloud ~]# 
+~~~
+
+
+### IP details , // Undercloud 
+~~~
+[root@undercloud ~]# ip a
+~~~
+
+~~~
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:90:80:54 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.24.1/24 brd 192.168.24.255 scope global noprefixroute eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe90:8054/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:16:78:f4 brd ff:ff:ff:ff:ff:ff
+    inet 10.10.10.10/24 brd 10.10.10.255 scope global noprefixroute eth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe16:78f4/64 scope link 
+       valid_lft forever preferred_lft forever
+[root@undercloud ~]# 
+~~~
 
