@@ -135,4 +135,27 @@ end
 wr
 ~~~
 
+### TRUNK PORT CONFIGURATION FOR VLAN RANGE 10-50 ###
+
+
+~~~
+configure terminal 
+interface range Ethernet 3/0 - 3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 1-4,10-50,1002-1005
+end
+wr
+~~~
+
+
+### STP CONFIGURATION
+~~~
+conf t
+interface range Ethernet 3/0 - 3
+switchport mode trunk
+spanning-tree portfast
+end
+wr
+~~~
 
