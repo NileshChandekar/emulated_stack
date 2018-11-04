@@ -1,6 +1,6 @@
 # Design/Planning
 
-![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e1.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e5.png)
 
 # Interface Configuration 
 
