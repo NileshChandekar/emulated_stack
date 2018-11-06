@@ -425,3 +425,42 @@ $ sudo systemctl list-units openstack-*
 $ source ~/stackrc
 ~~~
 
+### Creating a User for Configuring Nodes, :- Once you have created and configured the stack user on all pre-provisioned nodes, copy the stack user’s public SSH key from the director node to each overcloud node. For example, to copy the director’s public SSH key to the Controller node:
+
+~~~
+$ ssh-copy-id stack@192.168.24.2
+~~~
+
+
+Installing the User Agent on Nodes
+
+~~~
+# sudo yum -y install python-heat-agent*
+~~~
+
+~~~
+Configuring Networking for the Control Plane
+~~~
+
+
+~~~
+ctlplane-assignments.yaml
+~~~
+
+~~~
+resource_registry:
+  OS::TripleO::DeployedServer::ControlPlanePort: /usr/share/openstack-tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
+
+parameter_defaults:
+  DeployedServerPortMap:
+    controller-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.2
+      subnets:
+        - cidr: 24
+    compute-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.3
+      subnets:
+        - cidr: 24
+~~~
