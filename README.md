@@ -1,14 +1,45 @@
 # Design/Planning
 
-![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e5.png)
+![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e1.png)
 
-# Interface Configuration 
+## Tools used to build Pre-Prvisioned Emulated Stack
+	* EVE-NG
+	* vyos - Router
+	* cumulus - Switch
+	* rhel7.5 - Servers
 
-![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e3.png)
 
-									
+### What is EVE
 
-# Switch 
+	* The Emulated Virtual Environment for Network, Security and DevOps professionals
+	* EVE-NG is graphical network emulators that support both commercial and open-source router images.
+	* The UNetLab/EVE-NG network emulator runs in a virtual machine so it can be set up Windows, Mac OS, or Linux computers. Its graphical user interface runs in a web browser.
+	* For more details [Click Here](http://eve-ng.net/)
+
+### What is Vyos
+
+	* VyOS provides a free routing platform that competes directly with other commercially available solutions from well known network providers.
+	* Because VyOS is run on standard amd64, i586 and ARM systems, it is able to be used as a router and firewall platform for cloud deployments
+	* For more details [Click Here](https://vyos.io/)
+
+
+### What is Cumulus-VX
+
+	* Cumulus Linux is an open networking Linux operating system for bare metal switches. It is based on Debian
+	*
+### What is rhel7
+
+	* Red Hat Enterprise Linux is a Linux distribution developed by Red Hat and targeted toward the commercial market.
+	* Red Hat Enterprise Linux is released in server versions for x86-64, Power Architecture, ARM64, and IBM Z, and a desktop version for x86-64
+
+
+# Interface Configuration
+
+![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e3.png)
+
+
+
+# Switch
 
 ~~~
 SW#sh ip int br
@@ -71,10 +102,10 @@ VLAN Name                             Status    Ports
 30   InternalApiNetworkVlanID         active    
 40   StorageMgmtNetworkVlanID         active    
 50   TenantNetworkVlanID              active    
-1002 fddi-default                     act/unsup 
-1003 token-ring-default               act/unsup 
-1004 fddinet-default                  act/unsup 
-1005 trnet-default                    act/unsup 
+1002 fddi-default                     act/unsup
+1003 token-ring-default               act/unsup
+1004 fddinet-default                  act/unsup
+1005 trnet-default                    act/unsup
 
 VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
 ---- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
@@ -88,10 +119,10 @@ VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
 1003 tr    101003     1500  -      -      -        -    -        0      0   
 1004 fdnet 101004     1500  -      -      -        ieee -        0      0   
 1005 trnet 101005     1500  -      -      -        ibm  -        0      0   
-          
+
 Remote SPAN VLANs
 ------------------------------------------------------------------------------
-          
+
 
 Primary Secondary Type              Ports
 ------- --------- ----------------- ------------------------------------------
@@ -117,19 +148,19 @@ VLAN Name                             Status    Ports
 30   InternalApiNetworkVlanID         active    
 40   StorageMgmtNetworkVlanID         active    
 50   TenantNetworkVlanID              active    
-1002 fddi-default                     act/unsup 
-1003 token-ring-default               act/unsup 
-1004 fddinet-default                  act/unsup 
-1005 trnet-default                    act/unsup 
+1002 fddi-default                     act/unsup
+1003 token-ring-default               act/unsup
+1004 fddinet-default                  act/unsup
+1005 trnet-default                    act/unsup
 IOU1#
 ~~~
 
 
-### VTP CONFIGURATION ### 
+### VTP CONFIGURATION ###
 
 ~~~
 conf t
-vtp mode server 
+vtp mode server
 vtp domain OPENSTACKLAB
 end
 wr
@@ -139,7 +170,7 @@ wr
 
 
 ~~~
-configure terminal 
+configure terminal
 interface range Ethernet 3/0 - 3
 switchport trunk encapsulation dot1q
 switchport mode trunk
@@ -159,10 +190,10 @@ end
 wr
 ~~~
 
-### Check Trunk Details 
+### Check Trunk Details
 
 ~~~
-ESW1# sh interfaces trunk 
+ESW1# sh interfaces trunk
 ~~~
 
 ~~~
@@ -193,7 +224,7 @@ IOU1#
 ~~~
 
 
-# Switch EtherChannel Configuration 
+# Switch EtherChannel Configuration
 
 ### Channel Group 1 for port 3/0 - 1
 
@@ -215,22 +246,22 @@ end
 wr
 ~~~
 
-# Server Side Configuration 
+# Server Side Configuration
 
-### Setting hostname // Undercloud 
+### Setting hostname // Undercloud
 ~~~
 # hostnamectl set-hostname undercloud.example.com
 # hostnamectl set-hostname --transient undercloud.example.com
 ~~~
 
 ~~~
-[root@undercloud ~]# hostname -f 
+[root@undercloud ~]# hostname -f
 undercloud.example.com
-[root@undercloud ~]# 
+[root@undercloud ~]#
 ~~~
 
 
-### Setting hostname // Controller 
+### Setting hostname // Controller
 
 ~~~
 # hostnamectl set-hostname ctrl.example.com
@@ -238,13 +269,13 @@ undercloud.example.com
 ~~~
 
 ~~~
-[root@ctrl ~]# hostname -f 
+[root@ctrl ~]# hostname -f
 ctrl.example.com
-[root@ctrl ~]# 
+[root@ctrl ~]#
 ~~~
 
 
-### Setting hostname // Compute 
+### Setting hostname // Compute
 
 ~~~
 # hostnamectl set-hostname cmpt.example.com
@@ -252,9 +283,9 @@ ctrl.example.com
 ~~~
 
 ~~~
-[root@cmpt ~]# hostname -f 
+[root@cmpt ~]# hostname -f
 cmpt.example.com
-[root@cmpt ~]# 
+[root@cmpt ~]#
 ~~~
 
 ### Add hostentry for Undercloud node `` etc/hosts ``  // Undercloud Node
@@ -263,11 +294,11 @@ cmpt.example.com
 [root@undercloud ~]# cat  /etc/hosts
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 undercloud.example.com undercloud
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-[root@undercloud ~]# 
+[root@undercloud ~]#
 ~~~
 
 
-### IP details , // Undercloud 
+### IP details , // Undercloud
 ~~~
 [root@undercloud ~]# ip a
 ~~~
@@ -277,21 +308,21 @@ cmpt.example.com
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
+    inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:90:80:54 brd ff:ff:ff:ff:ff:ff
     inet 192.168.24.1/24 brd 192.168.24.255 scope global noprefixroute eth0
        valid_lft forever preferred_lft forever
-    inet6 fe80::a00:27ff:fe90:8054/64 scope link 
+    inet6 fe80::a00:27ff:fe90:8054/64 scope link
        valid_lft forever preferred_lft forever
 3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:16:78:f4 brd ff:ff:ff:ff:ff:ff
     inet 10.10.10.10/24 brd 10.10.10.255 scope global noprefixroute eth1
        valid_lft forever preferred_lft forever
-    inet6 fe80::a00:27ff:fe16:78f4/64 scope link 
+    inet6 fe80::a00:27ff:fe16:78f4/64 scope link
        valid_lft forever preferred_lft forever
-[root@undercloud ~]# 
+[root@undercloud ~]#
 ~~~
 
 
@@ -306,29 +337,29 @@ cmpt.example.com
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
+    inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:eb:8a:b0 brd ff:ff:ff:ff:ff:ff
     inet 192.168.24.2/24 brd 192.168.24.255 scope global noprefixroute eth0
        valid_lft forever preferred_lft forever
-    inet6 fe80::a00:27ff:feeb:8ab0/64 scope link 
+    inet6 fe80::a00:27ff:feeb:8ab0/64 scope link
        valid_lft forever preferred_lft forever
 3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:73:77:2f brd ff:ff:ff:ff:ff:ff
     inet 10.10.10.20/24 brd 10.10.10.255 scope global noprefixroute eth1
        valid_lft forever preferred_lft forever
-    inet6 fe80::a00:27ff:fe73:772f/64 scope link 
+    inet6 fe80::a00:27ff:fe73:772f/64 scope link
        valid_lft forever preferred_lft forever
 4: eth2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:cc:00:0a brd ff:ff:ff:ff:ff:ff
 5: eth3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:15:53:c3 brd ff:ff:ff:ff:ff:ff
-[root@ctrl ~]# 
+[root@ctrl ~]#
 ~~~
 
 
-### IP details , // Compute Node 
+### IP details , // Compute Node
 
 ~~~
 [root@cmpt ~]# ip a
@@ -339,29 +370,29 @@ cmpt.example.com
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
+    inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:12:24:35 brd ff:ff:ff:ff:ff:ff
     inet 192.168.24.3/24 brd 192.168.24.255 scope global noprefixroute eth0
        valid_lft forever preferred_lft forever
-    inet6 fe80::a00:27ff:fe12:2435/64 scope link 
+    inet6 fe80::a00:27ff:fe12:2435/64 scope link
        valid_lft forever preferred_lft forever
 3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:93:14:17 brd ff:ff:ff:ff:ff:ff
     inet 10.10.10.30/24 brd 10.10.10.255 scope global noprefixroute eth1
        valid_lft forever preferred_lft forever
-    inet6 fe80::a00:27ff:fe93:1417/64 scope link 
+    inet6 fe80::a00:27ff:fe93:1417/64 scope link
        valid_lft forever preferred_lft forever
 4: eth2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:25:90:86 brd ff:ff:ff:ff:ff:ff
 5: eth3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:2a:fa:e8 brd ff:ff:ff:ff:ff:ff
-[root@cmpt ~]# 
+[root@cmpt ~]#
 ~~~
 
 
-### Create stack user 
+### Create stack user
 
 ~~~
 useradd stack
@@ -413,13 +444,13 @@ $ openstack undercloud install
 ~~~
 
 
-### Check the enabled services using the following command: 
+### Check the enabled services using the following command:
 
 ~~~
 $ sudo systemctl list-units openstack-*
 ~~~
 
-### To initialize the stack user to use the command line tools, run the following command: 
+### To initialize the stack user to use the command line tools, run the following command:
 
 ~~~
 $ source ~/stackrc
