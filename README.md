@@ -62,7 +62,7 @@
 
 #### Trunked Vlan Configuration
 
-![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e9.png)
+![Image ](/https://github.com/NileshChandekar/emulated_stack/blob/master/images/e9.png)
 
 
 
@@ -238,7 +238,7 @@ chmod 0440 /etc/sudoers.d/stack
 
 ### Registering your System
 
-![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e10.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e10.png)
 
 
 ### Installing the Director Packages
@@ -286,7 +286,7 @@ $ sudo systemctl list-units openstack-*
 $ source ~/stackrc
 ~~~
 
-### Creating a User for Configuring Nodes, :- Once you have created and configured the stack user on all pre-provisioned nodes, copy the stack user’s public SSH key from the director node to each overcloud node. For example, to copy the director’s public SSH key to the Controller node:
+#### Creating a User for Configuring Nodes, :- Once you have created and configured the stack user on all pre-provisioned nodes, copy the stack user’s public SSH key from the director node to each overcloud node. For example, to copy the director’s public SSH key to the Controller node:
 
 ~~~
 $ ssh-copy-id stack@192.168.24.2
