@@ -3,9 +3,10 @@
 ![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e1.png)
 
 ## Tools used to build Pre-Prvisioned Emulated Stack
-	* EVE-NG
-	* vyos - Router
-	* cumulus - Switch
+
+	* EVE-NG - Emulated Virtual Environemnt.
+	* Vyos - Router
+	* Cumulus - Switch
 	* rhel7.5 - Servers
 
 
@@ -13,7 +14,6 @@
 
 	* The Emulated Virtual Environment for Network, Security and DevOps professionals
 	* EVE-NG is graphical network emulators that support both commercial and open-source router images.
-	* The UNetLab/EVE-NG network emulator runs in a virtual machine so it can be set up Windows, Mac OS, or Linux computers. Its graphical user interface runs in a web browser.
 	* For more details [Click Here](http://eve-ng.net/)
 
 ### What is Vyos
@@ -33,9 +33,38 @@
 	* Red Hat Enterprise Linux is released in server versions for x86-64, Power Architecture, ARM64, and IBM Z, and a desktop version for x86-64
 
 
-# Interface Configuration
+# Vyos - Roouter Configuration 
+
+#### Interface Configuration
+
+![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e2.png)
+
+####  Configure Source NAT for our "Inside" network.
 
 ![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e3.png)
+
+#### DNS forwarder:
+
+![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e4.png)
+
+
+# Cumulus-VX - Switch Configuration
+
+#### Activate Interfaces
+
+![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e5.png)
+
+#### Adding Bridge to make switch port communicate
+
+![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e8.png)
+
+
+
+
+
+
+
+
 
 
 
