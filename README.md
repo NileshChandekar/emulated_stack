@@ -1,6 +1,6 @@
 # Design/Planning
 
-![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e1.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e1.png)
 
 ## Tools used to build Pre-Prvisioned Emulated Stack
 
@@ -33,30 +33,30 @@
 	* Red Hat Enterprise Linux is released in server versions for x86-64, Power Architecture, ARM64, and IBM Z, and a desktop version for x86-64
 
 
-# Vyos - Roouter Configuration 
+# Vyos - Roouter Configuration
 
 #### Interface Configuration
 
-![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e2.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e2.png)
 
 ####  Configure Source NAT for our "Inside" network.
 
-![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e3.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e3.png)
 
 #### DNS forwarder:
 
-![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e4.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e4.png)
 
 
 # Cumulus-VX - Switch Configuration
 
 #### Activate Interfaces
 
-![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e5.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e5.png)
 
 #### Adding Bridge to make switch port communicate
 
-![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/images/e8.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e8.png)
 
 
 
