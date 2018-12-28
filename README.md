@@ -62,15 +62,16 @@
 
 #### Trunked Vlan Configuration
 
-![Image ](/https://github.com/NileshChandekar/emulated_stack/blob/master/images/e9.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e9.png)
 
 
 
 
 # RHEL-7.5 Installtion
 
-#### Download `` qcow2 `` and import to EVE-NG.
-
+~~~
+Download `` qcow2 `` and import to EVE-NG.
+~~~
 
 # Server Side Configuration
 
