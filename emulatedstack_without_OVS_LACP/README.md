@@ -1,6 +1,6 @@
 # Design/Planning
 
-![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e1.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/emulatedstack_without_OVS_LACP/images/e1.png)
 
 ## Tools used to build Pre-Prvisioned Emulated Stack
 
@@ -38,31 +38,31 @@
 
 #### Interface Configuration
 
-![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e2.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/emulatedstack_without_OVS_LACP/images/e2.png)
 
 ####  Configure Source NAT for our "Inside" network.
 
-![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e3.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/emulatedstack_without_OVS_LACP/images/e3.png)
 
 #### DNS forwarder:
 
-![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e4.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/emulatedstack_without_OVS_LACP/images/e4.png)
 
 
 # Cumulus-VX - Switch Configuration
 
 #### Activate Interfaces
 
-![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e5.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/emulatedstack_without_OVS_LACP/images/e5.png)
 
 #### Adding Bridge to make switch port communicate
 
-![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e8.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/emulatedstack_without_OVS_LACP/images/e8.png)
 
 
 #### Trunked Vlan Configuration
 
-![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e9.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/emulatedstack_without_OVS_LACP/images/e9.png)
 
 
 
@@ -239,7 +239,7 @@ chmod 0440 /etc/sudoers.d/stack
 
 ### Registering your System
 
-![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/images/e10.png)
+![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/emulatedstack_without_OVS_LACP/images/e10.png)
 
 
 ### Installing the Director Packages
