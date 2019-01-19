@@ -6,11 +6,17 @@
   *   Switch Configuration
   *   Undercloud Configuration
     * Hostname Setting
+
     * Register the node
+
     * User creation - stack
+
     * Directories creation - images/templates
+
     * Install ``python-tripleoclient`` package
+
     * Create ``undercloud.conf``
+
     * Install Undercloud ``openstack undercloud install``
   *   Overcloud Configuration
 
