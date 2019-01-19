@@ -9,7 +9,11 @@
   *   Overcloud Configuration
 
 # Topology
+![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/emulatedstack_osp13_fake_pxe_single_nic/images/q1.png)
 
+## High Level Overview of Interface Placement.
+
+![Image ](/home/cNilesh/Redhat/githubprojects/emulated_stack/emulatedstack_osp13_fake_pxe_single_nic/images/q4.png)
 # Router
 
 * Interface Configuration :-
