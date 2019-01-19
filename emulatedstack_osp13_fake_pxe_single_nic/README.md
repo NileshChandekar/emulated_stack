@@ -5,6 +5,7 @@
   *   Router Configuration
   *   Switch Configuration
   *   Undercloud Configuration
+
     * Hostname Setting
 
     * Register the node
