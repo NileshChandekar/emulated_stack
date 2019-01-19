@@ -6,20 +6,22 @@
   *   Switch Configuration
   *   Undercloud Configuration
 
-    * Hostname Setting
+      * Hostname Setting
 
-    * Register the node
+      * Register the node
 
-    * User creation - stack
+      * User creation - stack
 
-    * Directories creation - images/templates
+      * Directories creation - images/templates
 
-    * Install ``python-tripleoclient`` package
+      * Install ``python-tripleoclient`` package
 
-    * Create ``undercloud.conf``
+      * Create ``undercloud.conf``
 
-    * Install Undercloud ``openstack undercloud install``
+      * Install Undercloud ``openstack undercloud install``
+
   *   Overcloud Configuration
+
 
 # Topology
 ![Image ](https://github.com/NileshChandekar/emulated_stack/blob/master/emulatedstack_osp13_fake_pxe_single_nic/images/q1.png)
