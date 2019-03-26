@@ -1,1 +1,0 @@
-Emulated_Stack_Queens_Templates
